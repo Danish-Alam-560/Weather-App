@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="weatherModal" class="modal">
+            <div class="modal-content">
+                <span class="closeBtn">&times;</span>
+                <h2>Enter City Name</h2>
+                <input type="text" id="cityInput" placeholder="Type city here..." />
+                <button id="modalSearchBtn">Search</button>
+            </div>
+        </div>
+
+        <div class="button">
+            <button id="searchBtn">Search Weather</button>
+        </div>
+
+        <div class="temp-con">
+            <h1 id="cityName">Loading...</h1>
+            <div class="right-side">
+                <h1 id="temp">-- &#176;C</h1>
+                <h4 id="clear">-- --&#176;/--&#176;</h4>
+            </div>
+        </div>
+
+        <div class="con1">
+            <div class="wind">
+                <p>Wind Direction</p>
+                <p id="windDirection">--</p>
+                <p>Wind Speed</p>
+                <p id="windSpeed">--</p>
+            </div>
+            <div class="main-con">
+                <div class="main">
+                    <span>Humidity</span>
+                    <span id="humidity">--</span>
+                </div>
+                <div class="main">
+                    <span>Real Feel</span>
+                    <span id="realFeel">--</span>
+                </div>
+                <div class="main">
+                    <span>Temp in &#176; F</span>
+                    <span id="tempF">--</span>
+                </div>
+                <div class="main">
+                    <span>Pressure</span>
+                    <span id="pressure">--</span>
+                </div>
+                <div class="main">
+                    <span class="rain">Chance of <br> Rain</span>
+                    <span id="rain-chance">--</span>
+                </div>
+            </div>
+            <div class="sun">
+                <span>Sunrise</span>
+                <span id="sunrise">--</span>
+                <span>Sunset</span>
+                <span id="sunset">--</span>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <footer>
+        <p>Weather App By Danish Alam</p>
+    </footer>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,380 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-size: cover;
+  background: linear-gradient(135deg, #2b5876, #4e4376);
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column; /* stack container + footer */
+  min-height: 100vh;      /* full viewport height */
+}
+.button {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button button {
+  padding: 0.75rem 5rem;
+  font-size: 18px;
+  border-radius: 1.9rem;
+  border: none;
+  background-color: #fff;
+  color: #4e4376;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+  transition: 0.4s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.button button:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.9);
+  transform: scale(1.04);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 30px 50px;
+  width: 360px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  text-align: center;
+  color: #f0f0f0;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 10% auto;
+}
+
+.closeBtn {
+  color: #fff;
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+#cityInput {
+  width: 100%;
+  padding: 15px 20px;
+  margin: 28px 0 35px 0;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  outline: none;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#cityInput:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+#modalSearchBtn {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #4e4376;
+  background: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#modalSearchBtn:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.9);
+  transform: scale(1.04);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.116);
+  border-radius: 1.9rem;
+  padding: 1.1rem;
+  width: 25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin: auto;  
+}
+
+.temp-con {
+  grid-column: 1 / 3;
+  background: rgba(255, 255, 255, 0.301);
+  min-height: 28vh;
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease-in-out;
+}
+
+#cityName {
+  font-size: 2.1rem;
+  display: inline-block;
+  max-width: 60%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.right-side {
+  text-align: right;
+}
+
+.right-side h1 {
+  margin: 0;
+}
+
+.right-side h4 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.temp-con:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.con1 {
+  display: contents;
+}
+
+.wind,
+.sun {
+  background: rgba(255, 255, 255, 0.301);
+  min-height: 18vh;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.wind:hover,
+.sun:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.main-con {
+  background: rgba(255, 255, 255, 0.301);
+  min-height: 18vh;
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  grid-row: span 2;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+  transition: 0.4s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.rain {
+  font-size: 18px;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.main-con:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
+.container {
+  max-width: 100%;
+  width: auto;
+}
+
+.temp-con,
+.wind,
+.sun,
+.main-con {
+  max-width: 100%;
+}
+
+#cityName,
+.right-side h1,
+.right-side h4,
+.temp-con,
+.wind,
+.sun,
+.main-con {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.button button,
+#modalSearchBtn,
+#cityInput {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background-color: rgba(0,0,0,0.2); 
+}
+
+@media (max-width: 425px) {
+  .modal-content {
+    max-width: 90%;
+  }
+
+  .container {
+    width: 58vh;
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .wind {
+    font-size: 0.9rem;
+  }
+  .sun {
+    font-size: 0.9rem;
+  }
+
+  #cityName {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .temp-con,
+  .wind,
+  .sun,
+  .main-con {
+    min-height: auto;
+    width: auto;
+  }
+
+  .right-side h1 {
+    font-size: 1.5rem;
+  }
+
+  .right-side h4 {
+    font-size: 0.9rem;
+  }
+
+  .button button,
+  #modalSearchBtn,
+  #cityInput {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+@media (min-width: 1440px) and (max-width: 1024px) {
+  .wind,
+  .sun,
+  .main-con {
+    width: 200vh;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 2560px) {
+  .temp-con,
+  .wind,
+  .sun,
+  .main-con {
+    max-width: 100%;
+    min-height: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 35rem;
+    padding: 1rem;
+  }
+
+  .temp-con,
+  .wind,
+  .sun,
+  .main-con {
+    width: 100%;
+    min-height: auto;
+    font-size: 18px;
+  }
+
+  #cityName {
+    font-size: 2.1rem;
+  }
+
+  .right-side h1 {
+    font-size: 1rem;
+  }
+
+  .right-side h4 {
+    font-size: 1rem;
+  }
+
+  .button button,
+  #modalSearchBtn,
+  #cityInput {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+}
+
+
